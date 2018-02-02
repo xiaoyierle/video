@@ -95,6 +95,11 @@ class Audio extends Component {
                     this.props.setSet(false);
                 }
                 break;
+            case 'ended':
+                this.props.setSet(false);
+                break;
+            default:
+                break;
         }
     }
     render() {
@@ -107,6 +112,7 @@ class Audio extends Component {
                     preload="true"
                     onCanPlay={() => this.controlAudio('allTime')}
                     onTimeUpdate={(e) => this.controlAudio('getCurrentTime')}
+                    onEnded={() => this.controlAudio('ended')}
                 >
                     您的浏览器不支持 audio 标签。
                 </audio>
